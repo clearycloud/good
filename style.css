@@ -1,105 +1,180 @@
 body{
 margin:0;
 font-family:Arial,sans-serif;
-background:#f4f7f4;
+background:#f5f7fa;
 text-align:center;
 }
 
+/* 제목 */
+
 h1{
 margin-top:30px;
-color:#2e7d32;
+color:#1565c0;
 }
+
+p{
+color:#555;
+}
+
+/* 지도 영역 */
 
 .korea-map{
+
 position:relative;
-width:450px;
-height:600px;
+
+width:500px;
+height:700px;
+
 margin:30px auto;
-background:#66bb6a;
-border-radius:40% 35% 45% 40%;
-box-shadow:0 0 20px rgba(0,0,0,0.2);
+
+/* 지도 이미지 */
+
+background-image:url("korea-map.png");
+
+background-size:contain;
+background-repeat:no-repeat;
+background-position:center;
 }
+
+/* 지역 버튼 */
 
 .korea-map button{
+
 position:absolute;
+
 border:none;
+
 padding:10px 15px;
+
 border-radius:20px;
+
 cursor:pointer;
+
 font-weight:bold;
-background:white;
+
+background:#1976d2;
+
+color:white;
+
+transition:0.3s;
 }
 
+.korea-map button:hover{
+
+background:#0d47a1;
+transform:scale(1.05);
+
+}
+
+/* 위치 조정 */
+
 .seoul{
-top:80px;
-left:190px;
+top:120px;
+left:220px;
 }
 
 .incheon{
-top:140px;
-left:110px;
+top:150px;
+left:140px;
 }
 
 .daejeon{
-top:260px;
-left:180px;
+top:300px;
+left:220px;
 }
 
 .gwangju{
-top:360px;
-left:90px;
+top:420px;
+left:120px;
 }
 
 .daegu{
-top:330px;
-left:270px;
+top:390px;
+left:310px;
 }
 
 .ulsan{
-top:360px;
-left:330px;
+top:430px;
+left:370px;
 }
 
 .busan{
-top:440px;
-left:280px;
+top:520px;
+left:310px;
 }
 
 .jeju{
-top:530px;
-left:170px;
+top:620px;
+left:190px;
 }
+
+/* 검색 화면 */
 
 #searchPage{
-margin-top:50px;
+
+padding-top:50px;
+
 }
+
+/* 검색창 */
 
 input{
+
 padding:12px;
+
 width:250px;
+
 border-radius:10px;
+
 border:1px solid #ccc;
+
+font-size:16px;
+
 }
+
+/* 버튼 공통 */
 
 button{
+
 padding:10px 15px;
+
 margin:5px;
+
 }
+
+/* 뒤로가기 */
 
 .backBtn{
+
 background:#2e7d32;
+
 color:white;
+
 border:none;
+
 border-radius:10px;
+
+cursor:pointer;
 }
 
+/* 결과 카드 */
+
 #result{
+
 margin-top:20px;
+
 background:white;
+
 padding:20px;
-width:300px;
+
+width:350px;
+
 margin-left:auto;
 margin-right:auto;
-border-radius:10px;
-box-shadow:0 0 10px rgba(0,0,0,0.1);
+
+border-radius:15px;
+
+box-shadow:0 4px 12px rgba(0,0,0,0.15);
+
+min-height:80px;
 }
