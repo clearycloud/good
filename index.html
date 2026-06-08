@@ -8,6 +8,11 @@
 </head>
 <body>
 
+<!-- 포인트 버튼 -->
+<div id="pointButton" onclick="openShop()">
+🪙 <span id="pointDisplay">0</span>P
+</div>
+
 <!-- 지도 화면 -->
 <div id="mapPage">
 
@@ -55,6 +60,35 @@ placeholder="예: 페트병, 종이, 비닐봉지"
 </button>
 
 <div id="result"></div>
+
+</div>
+
+<!-- 포인트 상점 -->
+<div id="shopPage" style="display:none;">
+
+<button class="backBtn" onclick="closeShop()">
+← 돌아가기
+</button>
+
+<h2>🎁 포인트 상점</h2>
+
+<div class="rewardCard">
+<h3>에코백</h3>
+<p>100P</p>
+<button onclick="exchangeReward(100,'에코백')">교환</button>
+</div>
+
+<div class="rewardCard">
+<h3>텀블러</h3>
+<p>200P</p>
+<button onclick="exchangeReward(200,'텀블러')">교환</button>
+</div>
+
+<div class="rewardCard">
+<h3>장바구니</h3>
+<p>300P</p>
+<button onclick="exchangeReward(300,'장바구니')">교환</button>
+</div>
 
 </div>
 
