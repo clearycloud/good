@@ -103,6 +103,22 @@ const aliases = {
 
 let currentRegion = "";
 
+/* 포인트 불러오기 */
+let points = Number(localStorage.getItem("points")) || 0;
+
+/* 포인트 표시 */
+function updatePoints(){
+
+const pointDisplay =
+document.getElementById("pointDisplay");
+
+if(pointDisplay){
+pointDisplay.innerText = points;
+}
+
+}
+
+/* 지역 선택 */
 function selectRegion(region){
 
 currentRegion = region;
@@ -114,8 +130,10 @@ document.getElementById("regionTitle").innerText =
 region + " 분리수거 도우미";
 
 document.getElementById("result").innerHTML = "";
+
 }
 
+/* 뒤로가기 */
 function goBack(){
 
 document.getElementById("searchPage").style.display = "none";
@@ -123,6 +141,7 @@ document.getElementById("mapPage").style.display = "block";
 
 }
 
+/* 검색 */
 function searchItem(){
 
 const input =
@@ -146,4 +165,66 @@ data[currentRegion][keyword];
 document.getElementById("result").innerHTML =
 `<h3>${keyword}</h3><p>${result}</p>`;
 
+/* 포인트 +10 */
+points += 10;
+
+localStorage.setItem(
+"points",
+points
+);
+
+updatePoints();
+
 }
+
+/* 상점 열기 */
+function openShop(){
+
+document.getElementById("mapPage").style.display = "none";
+document.getElementById("searchPage").style.display = "none";
+
+document.getElementById("shopPage").style.display = "block";
+
+}
+
+/* 상점 닫기 */
+function closeShop(){
+
+document.getElementById("shopPage").style.display = "none";
+
+document.getElementById("mapPage").style.display = "block";
+
+}
+
+/* 상품 교환 */
+function exchangeReward(cost,name){
+
+if(points < cost){
+
+alert("포인트가 부족합니다.");
+
+return;
+
+}
+
+points -= cost;
+
+localStorage.setItem(
+"points",
+points
+);
+
+updatePoints();
+
+alert(
+name + " 상품이 교환되었습니다!"
+);
+
+}
+
+/* 페이지 시작 시 포인트 표시 */
+window.onload = function(){
+
+updatePoints();
+
+};
