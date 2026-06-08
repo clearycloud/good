@@ -5,6 +5,8 @@ body{
     text-align:center;
 }
 
+/* 제목 */
+
 h1{
     margin-top:20px;
     color:#1565c0;
@@ -14,9 +16,43 @@ p{
     color:#555;
 }
 
-/* 지도 영역 */
+/* 우측 상단 포인트 */
+
+#pointButton{
+
+    position:fixed;
+
+    top:15px;
+    right:15px;
+
+    background:#ffca28;
+
+    padding:12px 18px;
+
+    border-radius:25px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+    box-shadow:0 3px 8px rgba(0,0,0,0.2);
+
+    z-index:1000;
+
+    transition:0.2s;
+}
+
+#pointButton:hover{
+
+    transform:scale(1.05);
+
+    background:#ffb300;
+}
+
+/* 지도 */
 
 .korea-map{
+
     position:relative;
 
     width:612px;
@@ -30,7 +66,7 @@ p{
     background-position:center;
 }
 
-/* 지도 위 버튼 */
+/* 지도 버튼 */
 
 .korea-map button{
 
@@ -130,6 +166,8 @@ p{
     padding:10px 16px;
 
     font-weight:bold;
+
+    transition:0.2s;
 }
 
 .backBtn:hover{
@@ -198,4 +236,81 @@ button{
     font-size:16px;
 
     line-height:1.6;
+}
+
+/* 포인트 상점 */
+
+#shopPage{
+
+    padding-top:40px;
+}
+
+.rewardCard{
+
+    background:white;
+
+    width:320px;
+
+    margin:20px auto;
+
+    padding:20px;
+
+    border-radius:15px;
+
+    box-shadow:0 4px 12px rgba(0,0,0,0.15);
+}
+
+.rewardCard h3{
+
+    margin-top:0;
+
+    color:#1565c0;
+}
+
+.rewardCard p{
+
+    font-size:18px;
+
+    font-weight:bold;
+}
+
+.rewardCard button{
+
+    background:#4caf50;
+
+    color:white;
+
+    border:none;
+
+    border-radius:10px;
+
+    cursor:pointer;
+
+    transition:0.2s;
+}
+
+.rewardCard button:hover{
+
+    background:#2e7d32;
+}
+
+/* 모바일 대응 */
+
+@media(max-width:700px){
+
+    .korea-map{
+
+        width:95vw;
+        height:95vw;
+    }
+
+    #result{
+
+        width:90%;
+    }
+
+    .rewardCard{
+
+        width:90%;
+    }
 }
