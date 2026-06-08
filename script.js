@@ -1,105 +1,98 @@
-body{
-margin:0;
-font-family:Arial,sans-serif;
-background:#f4f7f4;
-text-align:center;
+const data = {
+
+서울:{
+페트병:"라벨·뚜껑 제거 후 압착 배출",
+캔:"내용물 비우고 배출",
+비닐류:"이물질 제거 후 배출"
+},
+
+대전:{
+페트병:"투명 페트병 별도 배출",
+캔:"담배꽁초 제거 후 배출",
+비닐류:"깨끗한 것만 재활용 가능"
+},
+
+부산:{
+페트병:"압착 후 전용 수거함 배출",
+캔:"내용물 제거 후 배출",
+비닐류:"깨끗한 비닐만 배출"
+},
+
+대구:{
+페트병:"찌그러뜨린 뒤 배출",
+캔:"압착 후 배출",
+비닐류:"세척 후 배출"
+},
+
+인천:{
+페트병:"자동회수기 또는 전용함 배출",
+캔:"내용물 제거 후 배출",
+비닐류:"오염 제거 후 배출"
+},
+
+광주:{
+페트병:"라벨 제거 후 배출",
+캔:"이물질 제거 후 배출",
+비닐류:"음식물 묻은 비닐은 일반쓰레기"
+},
+
+울산:{
+페트병:"압착 후 배출",
+캔:"내용물 제거 후 배출",
+비닐류:"깨끗한 비닐만 배출"
+},
+
+제주도:{
+페트병:"투명 페트병 따로 배출",
+캔:"세척 후 배출",
+비닐류:"이물질 제거 후 배출"
 }
 
-h1{
-margin-top:30px;
-color:#2e7d32;
+};
+
+let currentRegion = "";
+
+function selectRegion(region){
+
+currentRegion = region;
+
+document.getElementById("mapPage").style.display = "none";
+document.getElementById("searchPage").style.display = "block";
+
+document.getElementById("regionTitle").innerText =
+region + " 분리수거 도우미";
+
 }
 
-.korea-map{
-position:relative;
-width:450px;
-height:600px;
-margin:30px auto;
-background:#66bb6a;
-border-radius:40% 35% 45% 40%;
-box-shadow:0 0 20px rgba(0,0,0,0.2);
+function goBack(){
+
+document.getElementById("searchPage").style.display = "none";
+document.getElementById("mapPage").style.display = "block";
+
 }
 
-.korea-map button{
-position:absolute;
-border:none;
-padding:10px 15px;
-border-radius:20px;
-cursor:pointer;
-font-weight:bold;
-background:white;
+function searchItem(){
+
+const keyword =
+document.getElementById("searchInput").value.trim();
+
+if(!keyword){
+return;
 }
 
-.seoul{
-top:80px;
-left:190px;
+const result =
+data[currentRegion]?.[keyword];
+
+if(result){
+
+document.getElementById("result").innerHTML =
+`<h3>${keyword}</h3><p>${result}</p>`;
+
+}else{
+
+document.getElementById("result").innerHTML =
+"<p>검색 결과가 없습니다.</p>";
+
 }
 
-.incheon{
-top:140px;
-left:110px;
-}
-
-.daejeon{
-top:260px;
-left:180px;
-}
-
-.gwangju{
-top:360px;
-left:90px;
-}
-
-.daegu{
-top:330px;
-left:270px;
-}
-
-.ulsan{
-top:360px;
-left:330px;
-}
-
-.busan{
-top:440px;
-left:280px;
-}
-
-.jeju{
-top:530px;
-left:170px;
-}
-
-#searchPage{
-margin-top:50px;
-}
-
-input{
-padding:12px;
-width:250px;
-border-radius:10px;
-border:1px solid #ccc;
-}
-
-button{
-padding:10px 15px;
-margin:5px;
-}
-
-.backBtn{
-background:#2e7d32;
-color:white;
-border:none;
-border-radius:10px;
-}
-
-#result{
-margin-top:20px;
-background:white;
-padding:20px;
-width:300px;
-margin-left:auto;
-margin-right:auto;
-border-radius:10px;
-box-shadow:0 0 10px rgba(0,0,0,0.1);
 }
