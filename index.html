@@ -1,48 +1,52 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>분리수거 도우미</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>분리수거 도우미</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<div class="container">
+<!-- 지도 화면 -->
+<div id="mapPage">
 
-  <h1>♻️ 분리수거 도우미</h1>
-  <p>지역을 선택하세요</p>
+<h1>♻️ 분리수거 도우미</h1>
+<p>지역을 선택하세요</p>
 
-  <div class="map-container">
+<div class="korea-map">
 
-    <img src="korea-map.png" class="map">
+<button onclick="selectRegion('서울')" class="seoul">서울</button>
+<button onclick="selectRegion('인천')" class="incheon">인천</button>
+<button onclick="selectRegion('대전')" class="daejeon">대전</button>
+<button onclick="selectRegion('광주')" class="gwangju">광주</button>
+<button onclick="selectRegion('대구')" class="daegu">대구</button>
+<button onclick="selectRegion('울산')" class="ulsan">울산</button>
+<button onclick="selectRegion('부산')" class="busan">부산</button>
+<button onclick="selectRegion('제주도')" class="jeju">제주도</button>
 
-    <button class="region seoul" onclick="showRegion('서울')">서울</button>
-    <button class="region incheon" onclick="showRegion('인천')">인천</button>
-    <button class="region daejeon" onclick="showRegion('대전')">대전</button>
-    <button class="region daegu" onclick="showRegion('대구')">대구</button>
-    <button class="region gwangju" onclick="showRegion('광주')">광주</button>
-    <button class="region ulsan" onclick="showRegion('울산')">울산</button>
-    <button class="region busan" onclick="showRegion('부산')">부산</button>
-    <button class="region jeju" onclick="showRegion('제주도')">제주도</button>
+</div>
 
-  </div>
+</div>
 
-  <div class="card">
+<!-- 검색 화면 -->
+<div id="searchPage" style="display:none;">
 
-    <h2 id="selectedRegion">지역을 선택하세요</h2>
+<button class="backBtn" onclick="goBack()">
+← 지도 보기
+</button>
 
-    <input
-      type="text"
-      id="searchInput"
-      placeholder="페트병, 캔, 비닐류..."
-    >
+<h2 id="regionTitle"></h2>
 
-    <button onclick="searchItem()">검색</button>
+<input
+type="text"
+id="searchInput"
+placeholder="페트병, 캔, 비닐류..."
+>
 
-    <div id="result"></div>
+<button onclick="searchItem()">검색</button>
 
-  </div>
+<div id="result"></div>
 
 </div>
 
