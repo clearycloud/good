@@ -1,105 +1,105 @@
-const data = {
-  서울: {
-    플라스틱: "세척 후 종류별 배출",
-    캔: "내용물 비우고 배출",
-    음식물쓰레기: "물기 제거 후 음식물 전용봉투 배출",
-    페트병: "라벨·뚜껑 제거 후 압착 배출",
-    종이류: "테이프 제거 후 묶어 배출",
-    비닐류: "이물질 제거 후 배출"
-  },
-
-  대전: {
-    플라스틱: "세척 후 분리배출",
-    캔: "담배꽁초 제거 후 배출",
-    음식물쓰레기: "물기 제거 후 음식물봉투 사용",
-    페트병: "투명 페트병 별도 배출",
-    종이류: "상자 접어서 배출",
-    비닐류: "깨끗한 것만 재활용 가능"
-  },
-
-  부산: {
-    플라스틱: "음식물 제거 후 배출",
-    캔: "내용물 제거 후 배출",
-    음식물쓰레기: "RFID 음식물통 사용 지역 많음",
-    페트병: "압착 후 전용 수거함 배출",
-    종이류: "젖지 않게 묶어 배출",
-    비닐류: "깨끗한 비닐만 배출"
-  },
-
-  대구: {
-    플라스틱: "플라스틱 용기 세척 후 배출",
-    캔: "압착 후 배출",
-    종이류: "우유팩 별도 배출",
-    음식물쓰레기: "물기 제거 후 배출",
-    페트병: "찌그러뜨린 뒤 배출",
-    비닐류: "세척 후 배출"
-  },
-
-  인천: {
-    플라스틱: "세척 후 배출",
-    캔: "내용물 제거 후 배출",
-    종이류: "스프링 제거 후 배출",
-    음식물쓰레기: "음식물 전용용기 사용",
-    페트병: "자동회수기 또는 전용함 배출",
-    비닐류: "오염 제거 후 배출"
-  },
-
-  광주: {
-    플라스틱: "재질별 분리배출",
-    캔: "이물질 제거 후 배출",
-    음식물쓰레기: "뼈·껍데기 제외 후 배출",
-    페트병: "라벨 제거 후 배출",
-    종이류: "코팅 종이는 일반쓰레기 처리 지역 존재",
-    비닐류: "음식물 묻은 비닐은 일반쓰레기"
-  },
-
-  울산: {
-    플라스틱: "플라스틱 종류별 분리",
-    캔: "내용물 제거 후 배출",
-    음식물쓰레기: "물기 최대한 제거 후 배출",
-    페트병: "압착 후 배출",
-    종이류: "물기 없는 상태로 배출",
-    비닐류: "깨끗한 비닐만 배출"
-  },
-
-  제주도: {
-    플라스틱: "세척 후 배출",
-    캔: "세척 후 배출",
-    음식물쓰레기: "조개껍데기 제외 후 배출",
-    페트병: "투명 페트병 따로 배출",
-    종이류: "종이박스 접어서 배출",
-    비닐류: "이물질 제거 후 배출"
-  }
-};
-
-let currentRegion = "";
-
-function showRegion(region) {
-  currentRegion = region;
-
-  document.getElementById("selectedRegion").innerText =
-    `${region} 분리수거 검색`;
-
-  document.getElementById("result").innerHTML =
-    "검색할 품목을 입력하세요.";
+body{
+margin:0;
+font-family:Arial,sans-serif;
+background:#f4f7f4;
+text-align:center;
 }
 
-function searchItem() {
-  if (!currentRegion) {
-    alert("먼저 지역을 선택하세요.");
-    return;
-  }
+h1{
+margin-top:30px;
+color:#2e7d32;
+}
 
-  const keyword =
-    document.getElementById("searchInput").value.trim();
+.korea-map{
+position:relative;
+width:450px;
+height:600px;
+margin:30px auto;
+background:#66bb6a;
+border-radius:40% 35% 45% 40%;
+box-shadow:0 0 20px rgba(0,0,0,0.2);
+}
 
-  const info = data[currentRegion][keyword];
+.korea-map button{
+position:absolute;
+border:none;
+padding:10px 15px;
+border-radius:20px;
+cursor:pointer;
+font-weight:bold;
+background:white;
+}
 
-  if (info) {
-    document.getElementById("result").innerHTML =
-      `<h3>${keyword}</h3><p>${info}</p>`;
-  } else {
-    document.getElementById("result").innerHTML =
-      "검색 결과가 없습니다.";
-  }
+.seoul{
+top:80px;
+left:190px;
+}
+
+.incheon{
+top:140px;
+left:110px;
+}
+
+.daejeon{
+top:260px;
+left:180px;
+}
+
+.gwangju{
+top:360px;
+left:90px;
+}
+
+.daegu{
+top:330px;
+left:270px;
+}
+
+.ulsan{
+top:360px;
+left:330px;
+}
+
+.busan{
+top:440px;
+left:280px;
+}
+
+.jeju{
+top:530px;
+left:170px;
+}
+
+#searchPage{
+margin-top:50px;
+}
+
+input{
+padding:12px;
+width:250px;
+border-radius:10px;
+border:1px solid #ccc;
+}
+
+button{
+padding:10px 15px;
+margin:5px;
+}
+
+.backBtn{
+background:#2e7d32;
+color:white;
+border:none;
+border-radius:10px;
+}
+
+#result{
+margin-top:20px;
+background:white;
+padding:20px;
+width:300px;
+margin-left:auto;
+margin-right:auto;
+border-radius:10px;
+box-shadow:0 0 10px rgba(0,0,0,0.1);
 }
