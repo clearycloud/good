@@ -1,0 +1,99 @@
+body{
+  margin:0;
+  font-family:'Arial',sans-serif;
+  background:#f4f8fc;
+}
+
+.container{
+  text-align:center;
+  padding:20px;
+}
+
+h1{
+  color:#1565c0;
+}
+
+.map-container{
+  position:relative;
+  width:500px;
+  margin:20px auto;
+}
+
+.map{
+  width:100%;
+}
+
+.region{
+  position:absolute;
+  border:none;
+  border-radius:20px;
+  padding:8px 14px;
+  background:#2196f3;
+  color:white;
+  cursor:pointer;
+  font-weight:bold;
+}
+
+.region:hover{
+  background:#1565c0;
+}
+
+.seoul{
+  top:50px;
+  left:220px;
+}
+
+.incheon{
+  top:80px;
+  left:150px;
+}
+
+.daejeon{
+  top:200px;
+  left:210px;
+}
+
+.daegu{
+  top:240px;
+  left:300px;
+}
+
+.gwangju{
+  top:260px;
+  left:120px;
+}
+
+.ulsan{
+  top:250px;
+  left:380px;
+}
+
+.busan{
+  top:320px;
+  left:330px;
+}
+
+.jeju{
+  top:450px;
+  left:170px;
+}
+
+.card{
+  width:450px;
+  margin:auto;
+  background:white;
+  padding:20px;
+  border-radius:15px;
+  box-shadow:0 5px 15px rgba(0,0,0,0.15);
+}
+
+input{
+  width:250px;
+  padding:10px;
+  border-radius:8px;
+  border:1px solid #ccc;
+}
+
+#result{
+  margin-top:20px;
+}
