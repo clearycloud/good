@@ -103,7 +103,7 @@ const aliases = {
 
 let currentRegion = "";
 
-/* 포인트 불러오기 */
+/* 포인트 */
 let points = Number(localStorage.getItem("points")) || 0;
 
 /* 포인트 표시 */
@@ -133,7 +133,7 @@ document.getElementById("result").innerHTML = "";
 
 }
 
-/* 뒤로가기 */
+/* 지도로 돌아가기 */
 function goBack(){
 
 document.getElementById("searchPage").style.display = "none";
@@ -165,7 +165,7 @@ data[currentRegion][keyword];
 document.getElementById("result").innerHTML =
 `<h3>${keyword}</h3><p>${result}</p>`;
 
-/* 포인트 +10 */
+/* 검색 성공 시 10포인트 적립 */
 points += 10;
 
 localStorage.setItem(
@@ -182,7 +182,6 @@ function openShop(){
 
 document.getElementById("mapPage").style.display = "none";
 document.getElementById("searchPage").style.display = "none";
-
 document.getElementById("shopPage").style.display = "block";
 
 }
@@ -191,18 +190,16 @@ document.getElementById("shopPage").style.display = "block";
 function closeShop(){
 
 document.getElementById("shopPage").style.display = "none";
-
 document.getElementById("mapPage").style.display = "block";
 
 }
 
 /* 상품 교환 */
-function exchangeReward(cost,name){
+function exchangeReward(cost, name){
 
 if(points < cost){
 
 alert("포인트가 부족합니다.");
-
 return;
 
 }
@@ -216,15 +213,27 @@ points
 
 updatePoints();
 
-alert(
-name + " 상품이 교환되었습니다!"
-);
+alert(name + " 상품이 교환되었습니다!");
 
 }
 
-/* 페이지 시작 시 포인트 표시 */
-window.onload = function(){
+/* 엔터키 검색 */
+document.addEventListener("DOMContentLoaded", () => {
+
+const input = document.getElementById("searchInput");
+
+if(input){
+
+input.addEventListener("keypress", function(e){
+
+if(e.key === "Enter"){
+searchItem();
+}
+
+});
+
+}
 
 updatePoints();
 
-};
+});
